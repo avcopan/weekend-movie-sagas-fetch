@@ -17,7 +17,7 @@ function MovieList() {
 
   return (
     <main>
-      <section>
+      <section className="flex flex-wrap gap-8 justify-center items-start">
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
           ))}

@@ -18,7 +18,7 @@ export default function Header() {
         <Link to="/">The Movies Saga!</Link>
       </h1>
       <details className="dropdown">
-        <summary className="m-1 btn">See Full List</summary>
+        <summary className="m-1 btn">View Details</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
           {movies.map((movie) => (
             <li key={movie.id}>

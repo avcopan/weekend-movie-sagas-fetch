@@ -24,18 +24,26 @@ export default function MovieDetails() {
   return (
     <div>
       {movie && (
-        <>
-          <p>{movie.title}</p>
-          <img src={`/${movie.poster}`} alt={movie.title} />
-          <p>{movie.description}</p>
-          <ul>
-            {movie_genres.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </ul>
-        </>
+        <div className="card w-full bg-base-100 shadow-xl mb-6">
+          <figure>
+            <img src={`/${movie.poster}`} alt={movie.title} />
+          </figure>
+          <div className="card-body p-4 flex flex-col justify-center items-center">
+            <h2 className="card-title">{movie.title}</h2>
+            <p>{movie.description}</p>
+            <ul>
+              {movie_genres.map((genre) => (
+                <li key={genre.id}>{genre.name}</li>
+              ))}
+            </ul>
+            <div className="card-actions self-end">
+              <button className="btn btn-primary" onClick={() => navigate("/")}>
+                Back to List
+              </button>
+            </div>
+          </div>
+        </div>
       )}
-      <button onClick={() => navigate("/")}>Back to List</button>
     </div>
   );
 }
