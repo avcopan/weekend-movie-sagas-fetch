@@ -10,13 +10,14 @@ function MovieList() {
   const movies = useSelector((store) => store.movies);
 
   useEffect(() => {
-    dispatch(actions.getMovies());
-    dispatch(actions.getGenres());
+    if (!movies.length) {
+      dispatch(actions.getMovies());
+      dispatch(actions.getGenres());
+    }
   }, []);
 
   return (
     <main>
-      <h1>Movie List</h1>
       <section>
         {movies.map((movie) => {
           return (
