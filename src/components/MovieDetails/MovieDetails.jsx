@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../state/actions";
 
 export default function MovieDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const movies = useSelector((store) => store.movies);
   const genres = useSelector((store) => store.genres);
   const movie = movies.filter((movie) => movie.id == id)[0];
@@ -34,6 +35,7 @@ export default function MovieDetails() {
           </ul>
         </>
       )}
+      <button onClick={() => navigate("/")}>Back to List</button>
     </div>
   );
 }
