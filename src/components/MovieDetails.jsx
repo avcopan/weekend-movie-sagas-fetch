@@ -30,10 +30,12 @@ export default function MovieDetails() {
           </figure>
           <div className="card-body p-4 flex flex-col justify-center items-center">
             <h2 className="card-title">{movie.title}</h2>
-            <p>{movie.description}</p>
-            <ul>
+            <p className="text-justify">{movie.description}</p>
+            <ul className="flex gap-8">
               {movie_genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
+                <li key={genre.id} className="font-medium text-accent">
+                  {genre.name}
+                </li>
               ))}
             </ul>
             <div className="card-actions self-end">
