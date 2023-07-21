@@ -1,7 +1,11 @@
-import { getMoviesAction } from "./store";
+import {
+  getMoviesAction as getMovies,
+  getGenresAction as getGenres,
+} from "./store";
 
 const actions = {
-  getMovies: getMoviesAction,
+  getMovies,
+  getGenres,
 };
 
 export default actions;

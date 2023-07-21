@@ -12,6 +12,7 @@ function MovieList() {
 
   useEffect(() => {
     dispatch(actions.getMovies());
+    dispatch(actions.getGenres());
   }, []);
 
   return (

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import { takeEvery, put } from "redux-saga/effects";
@@ -41,16 +42,13 @@ export const store = configureStore({
 });
 
 // create sagas
+//  1. get movies
 const GET_MOVIES = "GET_MOVIES";
 
-// - saga: getMovies
 function* getMovies() {
   try {
-    const response = yield fetch("/api/movie");
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    }
-    const movies = yield response.json();
+    const res = yield axios.get("/api/movie");
+    const movies = yield res.data;
     yield put(setMoviesAction(movies));
   } catch {
     console.log("get all error");
@@ -62,9 +60,28 @@ export const getMoviesAction = () => {
   return { type: GET_MOVIES };
 };
 
+//  1. get genres
+const GET_GENRES = "GET_GENRES";
+
+function* getGenres() {
+  try {
+    const res = yield axios.get("/api/genre");
+    const genres = yield res.data;
+    yield put(setGenresAction(genres));
+  } catch {
+    console.log("get all error");
+    alert("Something went wrong.");
+  }
+}
+
+export const getGenresAction = () => {
+  return { type: GET_GENRES };
+};
+
 // combine sagas into one watcher saga
 function* watcherSaga() {
   yield takeEvery(GET_MOVIES, getMovies);
+  yield takeEvery(GET_GENRES, getGenres);
 }
 
 // run the watcher saga in the saga middleware
