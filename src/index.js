@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App/App.js";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "./redux/store";
+import { store } from "./state/store";
 import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
