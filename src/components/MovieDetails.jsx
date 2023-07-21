@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../state/actions";
+import actions from "../state/actions";
 
 export default function MovieDetails() {
   const { id } = useParams();

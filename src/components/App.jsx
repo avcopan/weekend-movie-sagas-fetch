@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import MovieList from "../MovieList/MovieList";
-import MovieDetails from "../MovieDetails/MovieDetails";
+import MovieList from "./MovieList";
+import MovieDetails from "./MovieDetails";
 
 function App() {
   return (
@@ -9,7 +9,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<MovieList />} />
         <Route exact path="/details/:id" element={<MovieDetails />} />
-        {/* Details page */}
         {/* Add Movie page */}
       </Routes>
     </div>
