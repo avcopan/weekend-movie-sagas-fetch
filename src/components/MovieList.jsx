@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import actions from "../state/actions";
+import MovieCard from "./MovieCard";
 
 function MovieList() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const movies = useSelector((store) => store.movies);
 
@@ -19,17 +18,9 @@ function MovieList() {
   return (
     <main>
       <section>
-        {movies.map((movie) => {
-          return (
-            <div
-              key={movie.id}
-              onClick={() => navigate(`/details/${movie.id}`)}
-            >
-              <h3>{movie.title}</h3>
-              <img src={movie.poster} alt={movie.title} />
-            </div>
-          );
-        })}
+          {movies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
       </section>
     </main>
   );
