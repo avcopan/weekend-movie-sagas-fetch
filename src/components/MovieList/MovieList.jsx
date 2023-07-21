@@ -6,11 +6,10 @@ import "./MovieList.css";
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies);
-  console.log(movies);
+  console.log("Movies here!", movies);
 
   useEffect(() => {
     dispatch(actions.getMovies());
-    console.log(movies);
   }, []);
 
   return (

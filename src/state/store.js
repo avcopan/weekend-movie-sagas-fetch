@@ -51,7 +51,6 @@ function* getMovies() {
       throw new Error("Network response was not OK");
     }
     const movies = yield response.json();
-    console.log("Received movies:", movies);
     yield put(setMoviesAction(movies));
   } catch {
     console.log("get all error");
