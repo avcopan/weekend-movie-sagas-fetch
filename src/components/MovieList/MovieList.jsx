@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import actions from "../../state/actions";
-import "./MovieList.css";
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ function MovieList() {
   return (
     <main>
       <h1>Movie List</h1>
-      <section className="movies">
+      <section>
         {movies.map((movie) => {
           return (
             <div
